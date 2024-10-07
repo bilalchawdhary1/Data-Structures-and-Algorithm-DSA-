@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursive Binary Search in JavaScript | Data Structure</title>
+</head>
+
+<body>
+    <h1>Recursive Binary Search in JavaScript | Data Structure</h1>
+    <script>
+        let data = [11, 22, 33, 44, 55, 66, 77, 88, 99]
+        let start = 0;
+        let end = data.length - 1;
+        let searchElPos = 22;
+        let position = undefined;
+        function searchEl(data, start, end) {
+
+            let mid = Math.floor((start + end) / 2);
+            if (data[mid] === searchElPos) {
+                position = mid;
+                return true;
+            } else if (data[mid] < searchElPos) {
+                searchEl(data, mid + 1, end);
+            } else {
+                searchEl(data, start, mid - 1);
+            }
+        }
+        searchEl(data, start, end);
+        console.log(position);
+
+    </script>
+</body>
+
+</html>

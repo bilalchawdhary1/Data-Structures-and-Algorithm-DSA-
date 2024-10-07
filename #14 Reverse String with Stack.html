@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse String with Stack in JavaScript</title>
+</head>
+
+<body>
+    <h1>Reverse String with Stack in JavaScript</h1>
+    <input type="text" placeholder="Enter add number" id="addNumber">
+    <button onclick="push()">Add Number</button>
+    <button onclick="pop()">Remove Number</button>
+    <button onclick="show()">Show Number</button>
+    <script>
+        let data = [22];
+        let currentSize = data.length;
+        function push(newVal) {
+            data[currentSize] = newVal;
+            currentSize++;
+        }
+        function pop() {
+            lastRemoveItem = data[currentSize-1];
+            currentSize--;
+            data.length = currentSize;
+            return lastRemoveItem;
+        }
+        function reverseStr(strValues) {
+            for (let i = 0; i < strValues.length; i++) {
+                push(strValues[i]);
+            }
+            for (let i = 0; i < strValues.length; i++) {
+            //    console.log(pop());
+            strValues[i]= pop();  
+            // data[currentSize] =  
+            }
+        }
+
+        let str = 'bilal'
+        str = str.split('');
+        reverseStr(str);
+        console.log(str);
+        // console.log(data);
+
+    </script>
+</body>
+
+</html>

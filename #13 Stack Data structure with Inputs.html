@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#15 Stack Data structure with Inputs in JavaScript</title>
+</head>
+
+<body>
+    <h1>#15 Stack Data structure with Inputs in JavaScript</h1>
+    <input type="text" placeholder="Enter add number" id="addNumber">
+    <button onclick="pushElement()">Add Number</button>
+    <button onclick="popElement()">Remove Number</button>
+    <button onclick="showElements()">Show Number</button>
+
+    <script>
+        let data = [1, 2, 3];
+        let currentLength = data.length
+        function pushElement() {
+            let addNumber = document.getElementById("addNumber").value;
+            data[currentLength] = addNumber;
+            currentLength++;
+            document.getElementById("addNumber").value = '';
+        }
+
+        function popElement(){
+            if(currentLength>0){
+                currentLength--;
+                data.length = currentLength;
+            }else{
+               alert("Please add Number");
+            }
+        }
+        function showElements(){
+            for(let i=0; i<=data.length-1;i++){
+                console.log(data[i])
+            }
+        }
+    </script>
+</body>
+
+</html>

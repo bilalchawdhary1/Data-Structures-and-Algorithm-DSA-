@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Element In Array</title>
+</head>
+
+<body>
+    <h1>Delete Element In Array</h1>
+    <p>1st create a array then select a value that's  you want to delete <br>#2 now we use for-loop to travering in Array but now in this loop we start loop from delete value <br>
+         #3 now simply we use numArry[i] = numArry[i + 1] its delete or remove this element from Array
+        #4 but i + 1 this loop add last value double now we use numArry2.length = numArry2.length -1 to remove last duble element</p>
+    <input type="text" id="position"/>
+    <button onclick="deleteNum()">Delete Element </button>
+    <script>
+        let numArry = [1, 2, 2, 3, 4, 5]
+        // we delete 2 in this array using DSA
+        // let position = 2;
+        // for (let i = position; i < numArry.length - 1; i++) {
+        //     numArry[i] = numArry[i + 1]
+            // console.log(numArry[i]);
+
+        // }
+        // numArry.length = numArry.length -1
+        // console.log(numArry);
+
+        function deleteNum(){
+            let numArry2 = [1, 2, 2, 3, 4, 5];
+            let delPosition = document.getElementById("position").value;
+            delPosition = parseInt(delPosition)
+        for (let e = delPosition; e < numArry2.length - 1; e++) {
+            numArry2[e] = numArry2[e + 1]
+            // console.log(numArry[i]);
+
+        }
+        numArry2.length = numArry2.length -1
+        console.log(numArry2);
+        }
+
+        let data = [1,2,3,4,4,5];
+        let deladat = 4;
+        for(r= deladat; r<data.length-1; r++){
+            data[r] = data[r +1];
+        }
+        data.length = data.length - 1
+        // console.log(data);
+
+        let newArry = [1,2,3,4,5,5,6];
+        eleDele = 4;
+
+        for(let d = eleDele; d<newArry.length-1; d++){
+           newArry[d] = newArry[d + 1];
+        }
+        newArry.length = newArry.length-1;
+        console.log(newArry);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursion Data Structure in JS</title>
+</head>
+<body>
+    <h1>Recursion Data Structure in JS</h1>
+    <p>Recursion ka mutlab hota hai esa function jo kud ko bar bar dorata hai,</p>
+
+
+    <script>
+        // function apple(e){
+        //     console.log(e);
+        //     if(e<5){
+        //         e*apple(e+1);
+        //     }
+        // }
+        // let data = 0;
+        // apple(data);
+        
+        function factorial(x){
+            if(x==0){
+                return 1;
+            }
+            // here condition X==0 is use to control Recursion if we not use X==0 is function go into infinite mood
+            // Example: if we not X==0 ur pr return 1 phr ye ho gia 5*4*3*2*1*0*-1*-2*-3.....  
+            return x*factorial(x-1);
+        }
+        let ficOF = 5;
+        //# Examle factorial: 5 = 5*4*3*2*1
+       console.log(factorial(ficOF));
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Insert element in array JS</title>
+  </head>
+  <script>
+    function addNumber() {
+      let data = [1, 2, 3, 4, 5];
+      let newNum = document.getElementById("newNumber").value;
+      let position = document.getElementById("position").value;
+      // Convert input to integers
+      newNum = parseInt(newNum);
+      position = parseInt(position);
+
+      // Check if the inputs are valid numbers
+      if (isNaN(newNum) || isNaN(position)) {
+        alert("Please enter valid numbers.");
+        return;
+      }
+
+      // Validate the position
+      if (position < 0 || position > data.length) {
+        alert(
+          "Invalid position. Please enter a valid position between 0 and " +
+            data.length
+        );
+        return;
+      }
+      // Shift elements and insert the new number
+      for (let i = data.length - 1; i >= position; i--) {
+        data[i + 1] = data[i];
+      }
+      data[position] = newNum;
+      console.log(data);
+      // Display the updated array on the webpage
+      document.getElementById("output").innerHTML =
+        "Updated Array: " + data.join(", ");
+    }
+  </script>
+  <body>
+    <h1>Insert Element in Array (JS)</h1>
+    <p>Splice Function</p>
+    <input type="text" id="newNumber" placeholder="Enter New Number Here" />
+    <input
+      type="text"
+      id="position"
+      placeholder="Insert Number Position Here"
+    />
+    <button onclick="addNumber()">Insert Number</button>
+    <div id="output" style="margin-top: 20px; font-weight: bold"></div>
+  </body>
+</html>

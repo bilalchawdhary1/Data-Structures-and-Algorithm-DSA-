@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descending Order Sorting with Selection Sort </title>
+</head>
+<body>
+    <h1>Descending Order Sorting with Selection Sort </h1>
+    <script>
+         let data = [40, 30, 60, 10, 80, 20, 50, 70];
+        function selectionSort(data) {
+            let minId;
+            for (i = 0; i < data.length; i++) {
+                minId = i;
+                //  manId will be change after 2-loop full complete 
+                for (j = i + 1; j < data.length; j++) {
+                    if (data[j] > data[minId]) {
+                        minId = j
+                    }
+                    // console.log(data);
+
+                }
+                let temp = data[minId];
+                data[minId] = data[i];
+                data[i] = temp;
+            }
+        }
+        selectionSort(data);
+        console.log(data);
+    </script>
+</body>
+</html>

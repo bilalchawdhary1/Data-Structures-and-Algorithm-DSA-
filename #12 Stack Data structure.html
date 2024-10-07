@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stack Data structure in JavaScript</title>
+</head>
+<body>
+    <h1>Stack Data structure in JavaScript</h1>
+    <p>What is Stack Data Structure? A stack is a linear data structure that follows the Last-In-First-Out (LIFO) principle. It behaves like a stack of plates, where the last plate added is the first</p>
+    
+    <script>
+        let array = [1,2,3];
+        let currentSize = array.length;
+        let maxSize = 10;
+
+        //#1 push use for add data in the array
+        function push(newVal){
+            array[currentSize] = newVal;
+            currentSize++;
+            if(currentSize>maxSize){
+                alert("stack is full you can't add " + newVal);
+            }
+        }
+        
+        //#2 pop use for remove data in the array
+        function pop(){
+            if(currentSize>0){
+                currentSize--
+                array.length = currentSize;
+            }else{
+                alert("stack is empty");
+            }
+        }
+
+
+        push(20)
+        push(1)
+        // push(22)
+        // push(23)
+        // push(24)
+        // push(25)
+        // pop()
+        // pop()
+        // pop();
+        // console.log(array);
+
+        let data = [1,2,3];
+        let aryLength = data.length;
+
+        function push2(pushNum){
+            data[aryLength] = pushNum; 
+            aryLength++
+        }
+        function pop2(){
+            if(aryLength>0){
+                aryLength--;
+                data.length = aryLength;
+            }
+        }
+        push2(4);
+        // pop2()
+        console.log(data);
+    </script>
+</body>
+</html>

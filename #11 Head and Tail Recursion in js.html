@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Head and Tail Recursion</title>
+</head>
+
+<body>
+    <h1>Head and Tail Recursion</h1>
+    <p> function nums(x){ <br>
+        console.log(x);<br>
+        if(x>0){<br>
+            nums(x-1);<br>
+        }<br>
+        console.log(x);<br>
+    }<br>
+    let numData = 5;<br>
+    nums(numData);</p>
+   <p>#1 // Here frist console before of this condition is called head recursion in this recursion condition will be solve one by one like: 5,4,3,2,1,0
+   <br> #2 // Here second console after of this condition is called tail recursion in this recursion condition will be solve first then value will be execute, abi plhele wali value stack k nicha chaly gia or last wali uper so uper wali phele nikla gia or last wali bad mai ex.. : 0,1,2,3,4,5
+    </p>
+
+    <script>
+        // function price() {
+        //     console.log("price = RS:200")
+        // }
+        // function color() {
+        //     price();
+        //     console.log("color = Red")
+        // }
+        // function size() {
+        //     color();
+        //     console.log("size = 8")
+        // }
+        // function brand() {
+        //     size();
+        //     console.log("Brand = nike")
+        // }
+        // function customer(){
+        //     brand();
+        // }
+        // customer();
+        // Head and Tail Recursion
+        function nums(x){
+            // Here frist console before of this condition is called head recursion in this recursion condition will be solve one by one like: 5,4,3,2,1,0
+            console.log(x);
+            if(x>0){
+                nums(x-1);
+            }
+            // Here second console after of this condition is called tail recursion in this recursion condition will be solve first then value will be execute, abi plhele wali value stack k nicha chaly gia or last wali uper so uper wali phele nikla gia or last wali bad mai ex.. : 0,1,2,3,4,5
+            console.log(x);
+        }
+        let numData = 5;
+        nums(numData);
+    </script>
+</body>
+
+</html>

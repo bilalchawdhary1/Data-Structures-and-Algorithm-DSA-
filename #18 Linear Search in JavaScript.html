@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linear Search in JavaScript</title>
+</head>
+
+<body>
+    <h1>Linear Search in JavaScript</h1>
+    <p></p>
+    <input type="text" placeholder="enter the find element" id="find">
+    <button onclick="searchEl()">Search Element</button>
+    <script>
+        function searchEl() {
+            let data = [12, 11, 40, 90, 50, 73, 88];
+            let fine = document.getElementById("find").value;
+            let pos = undefined;
+            for (let i = 0; i < data.length; i++) {
+                if (data[i] == fine) {
+                    pos = i;
+                    break;
+                }
+            }
+            console.log(pos);
+        }
+
+    </script>
+</body>
+
+</html>

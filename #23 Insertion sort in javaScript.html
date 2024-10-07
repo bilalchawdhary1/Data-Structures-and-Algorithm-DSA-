@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insertion sort in JavaScript </title>
+</head>
+
+<body>
+    <h1>Insertion sort in JavaScript </h1>
+    <p>Insertion sort is a simple sorting algorithm that builds the final sorted array (or list) one item at a time by
+        comparisons. It is much less efficient on large lists than more advanced algorithms such as quicksort, heapsort,
+        or merge sort. However, insertion sort provides several advantages: <br>
+        in Insertion sort we also use two loop & nasted-loop but not same direction</p>
+    <script>
+        let data = [50, 40, 80, 5, 10];
+        function insertionSort(data) {
+            for (let i = 1; i < data.length; i++) {
+                let current = data[i];
+                let j = i - 1;
+                while (j >= 0 && data[j]>current) {
+                    data[j + 1] = data[j];
+                    j--;
+                }
+                data[j + 1] = current;
+            }
+            // let current, j;
+            // for (let i = 1; i < data.length; i++) {
+            //     let current = data[i];
+            //     let j = i - 1;
+            //     while(j>=0 && data[j]>current){
+            //         data[j + 1] = data[j];
+            //         j--;
+            //     }
+            //     data[j + 1] = current;
+            // }
+        }
+        insertionSort(data);
+        console.log(data);
+    </script>
+</body>
+
+</html>

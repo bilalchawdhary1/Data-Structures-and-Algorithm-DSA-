@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Front and Rear operations Queue with JavaScript</title>
+</head>
+
+<body>
+    <h1>Front and Rear operations Queue with JavaScript</h1>
+    <input type="text" placeholder="enter element here" id="enVal">
+    <button onclick="enQueue()">Add Element</button> <br> <br>
+    <button onclick="deQueue()">Remove Element</button>
+    <button onclick="front()">Get Front</button>
+    <button onclick="rear()">Get Rear</button>
+    <script>
+        let queue = [];
+        let currentSize = queue.length;
+        let maxSize = 5;
+
+        function enQueue() {
+            let enVal = document.getElementById("enVal").value;
+            queue[currentSize] = enVal;
+            currentSize++;
+            document.getElementById("enVal").value = '';
+            console.log(queue);
+        }
+        function deQueue() {
+            if (currentSize > 0) {
+                for (let i = 0; i < queue.length; i++) {
+                    queue[i] = queue[i + 1];
+                }
+                currentSize--;
+                queue.length = currentSize;
+            } else {
+                alert("queue is already empty");
+            }
+            console.log(queue);
+        }
+        // front is the oldest value & frist value of array;
+        function front() {
+            if (currentSize > 0) {
+                console.log(queue[0]);
+            } else {
+                alert("queue is already empty");
+            }
+        }
+        // Rear is the latest value that update in array & last value of array;
+        function rear() {
+            if (currentSize > 0) {
+                console.log(queue[currentSize - 1]);
+            } else {
+                alert("queue is already empty");
+            }
+        }
+
+        // enQueue(20);
+        // enQueue(30);
+        // enQueue(40);
+        // front();
+        // rear();
+        // console.log(queue);
+
+    </script>
+</body>
+
+</html>

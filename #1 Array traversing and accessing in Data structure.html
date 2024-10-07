@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array traversing and accessing in Data structure</title>
+  </head>
+  <body>
+    <h1>Array traversing and accessing in Data structure</h1>
+    <p>
+      Read all elements of array one by one is called Array traversing, <br />
+      accessing array : array mai sy kesi bhe element ko aproche krna is called
+      accessing array.
+    </p>
+    <input type="text" id="element" />
+    <button onclick="getElement()">Get Element</button>
+    <script>
+      let data = [9, 45, 67, 89, 98, 6, 54, 21, 34, 1, 0, 45, 2, 312];
+      //1 Now we travering array using for loop
+    //   for (let i = 0; i < data.length; i++) {
+    //     document.write(data[i]);
+    //   }
+      // console.log(data);
+      //2 Now we accessing array using function
+      // let x = 10;
+      // document.write(data[x]);
+      //3 Now we accessing element with text input and button
+    //   function getElement() {
+    //     let el = document.getElementById("element").value;
+    //     //4 here validations
+    //     if (el < data.length) {
+    //       alert(data[el]);
+    //     } else {
+    //       alert("plese enter the valid input");
+    //     }
+    //   }
+    //6 Now we accessing element with text input and button with template literals
+    const getElement = () => {
+      let el = document.getElementById("element").value;
+      //4 here validations
+      if (el < data.length) {
+        alert(`Element on index ${el} is ${data[el]}`);
+      } else {
+        alert("Please enter the valid input");
+      }
+    };
+    
+    </script>
+  </body>
+</html>

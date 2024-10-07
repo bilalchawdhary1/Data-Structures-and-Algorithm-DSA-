@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Sorting in JS</title>
+</head>
+
+<body>
+    <h1>Array Sorting in JS</h1>
+    <p>loop mai ik or loop use krna ko nexted loop khety hai</p>
+    <script>
+        let data = [9, 1, 4, 5, 2];
+
+        for (i = 0; i < data.length; i++) {
+            //# here point is phele wala loop 0 index chala or ruk gia pr next wala to full index chala gia n q ka phr ve phele wali ki bari phr ay gi esi tra phele wali phr 1 index chala or necha wala phr sara k sara chly gia  
+            for (j = 0; j < data.length; j++) {
+                if (data[j] > data[j + 1]) {
+                    let temprary = data[j];
+                    data[j] = data[j + 1];
+                    data[j + 1] = temprary;
+                }
+            }
+        }
+        console.log(data)
+    </script>
+</body>
+
+</html>
