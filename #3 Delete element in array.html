@@ -1,61 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Delete Element In Array</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <h1>Delete Element In Array</h1>
-    <p>1st create a array then select a value that's  you want to delete <br>#2 now we use for-loop to travering in Array but now in this loop we start loop from delete value <br>
-         #3 now simply we use numArry[i] = numArry[i + 1] its delete or remove this element from Array
-        #4 but i + 1 this loop add last value double now we use numArry2.length = numArry2.length -1 to remove last duble element</p>
-    <input type="text" id="position"/>
-    <button onclick="deleteNum()">Delete Element </button>
+    <p>
+      1. First, create an array, then select a value that you want to delete.<br />
+      2. Use a for-loop to traverse the array, starting from the index of the
+      element to delete.<br />
+      3. Shift elements left by one, effectively removing the element.<br />
+      4. Adjust the length of the array to remove the last duplicate element.
+    </p>
+
+    <input type="text" id="position" placeholder="Enter Position to Delete" />
+    <button onclick="deleteNum()">Delete Element</button>
+
+    <div id="output" style="margin-top: 20px; font-weight: bold;"></div>
+
     <script>
-        let numArry = [1, 2, 2, 3, 4, 5]
-        // we delete 2 in this array using DSA
-        // let position = 2;
-        // for (let i = position; i < numArry.length - 1; i++) {
-        //     numArry[i] = numArry[i + 1]
-            // console.log(numArry[i]);
+      let numArry = [1, 2, 2, 3, 4, 5];
 
-        // }
-        // numArry.length = numArry.length -1
-        // console.log(numArry);
+      function deleteNum() {
+        let delPosition = document.getElementById("position").value;
+        delPosition = parseInt(delPosition);
 
-        function deleteNum(){
-            let numArry2 = [1, 2, 2, 3, 4, 5];
-            let delPosition = document.getElementById("position").value;
-            delPosition = parseInt(delPosition)
-        for (let e = delPosition; e < numArry2.length - 1; e++) {
-            numArry2[e] = numArry2[e + 1]
-            // console.log(numArry[i]);
-
-        }
-        numArry2.length = numArry2.length -1
-        console.log(numArry2);
+        // Validate position
+        if (isNaN(delPosition) || delPosition < 0 || delPosition >= numArry.length) {
+          document.getElementById("output").innerHTML =
+            "Invalid position. Please enter a valid index between 0 and " + (numArry.length - 1);
+          return;
         }
 
-        let data = [1,2,3,4,4,5];
-        let deladat = 4;
-        for(r= deladat; r<data.length-1; r++){
-            data[r] = data[r +1];
+        // Delete element by shifting
+        for (let e = delPosition; e < numArry.length - 1; e++) {
+          numArry[e] = numArry[e + 1];
         }
-        data.length = data.length - 1
-        // console.log(data);
 
-        let newArry = [1,2,3,4,5,5,6];
-        eleDele = 4;
+        // Reduce array length to remove duplicate
+        numArry.length = numArry.length - 1;
 
-        for(let d = eleDele; d<newArry.length-1; d++){
-           newArry[d] = newArry[d + 1];
-        }
-        newArry.length = newArry.length-1;
-        console.log(newArry);
+        // Display updated array
+        document.getElementById("output").innerHTML = "Updated Array: " + numArry.join(", ");
+      }
     </script>
-</body>
-
+  </body>
 </html>
