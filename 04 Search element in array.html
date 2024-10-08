@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search element in array JS</title>
+  </head>
+  <body>
+    <h1>Search Element in Array (JS)</h1>
+    <p>
+      1. Create an array <br />
+      2. Take a search element <br />
+      3. Use a loop to traverse the array <br />
+      4. Use a condition to find the element's index in the array, if it exists
+    </p>
+    <input type="text" placeholder="Enter Element to Search" id="searchItem" />
+    <button onclick="searchEle()">Search Element</button>
+
+    <div id="output" style="margin-top: 20px; font-weight: bold"></div>
+    <script>
+      function searchEle() {
+        let data = [1, 2, 3, 4, 5, 6, 7];
+        let searchItem = document.getElementById("searchItem").value;
+        searchItem = parseInt(searchItem); // Corrected to parse the searchItem
+        let resultItem = -1; // Default to -1 if not found
+
+        for (let i = 0; i < data.length; i++) {
+          if (data[i] === searchItem) {
+            resultItem = i;
+            break;
+          }
+        }
+
+        // Display result
+        let output = document.getElementById("output");
+        if (resultItem === -1) {
+          output.innerHTML = "Element not found in the array.";
+        } else {
+          output.innerHTML = "Element found at index: " + resultItem;
+        }
+      }
+
+      // simple way #1
+      let data1 = [1, 2, 3, 4, 5, 6, 7];
+      let searchEle1 = 5;
+      let resultItem1 = undefined;
+      for (let i = 0; i <= data1.length - 1; i++) {
+        if (data1[i] === searchEle1) {
+          resultItem1 = i;
+          break;
+        }
+      }
+      // simple way #2
+      let data2 = [1, 2, 3, 4, 5, 6, 7];
+      let searchEle2 = 5;
+      let resultItem2 = data2.indexOf(searchEle2);
+      //   console.log(resultItem1, resultItem2);
+    </script>
+  </body>
+</html>

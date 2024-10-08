@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Merge Two Array Manually</title>
+</head>
+
+<body>
+    <h1>Merge Two Arrays Manually</h1>
+    <p>
+        1. Take two arrays <br />
+        2. Create a third array to store the merged values <br />
+        3. Use two loops to merge both arrays
+    </p>
+    <script>
+        let ary1 = [1, 2, 3, 4, 5];
+        let ary2 = [6, 7, 8, 9, 10];
+        let ary3 = [];
+
+        // Method 2: Using for loop
+        // First loop to copy elements from ary1 into ary3
+        for (let i = 0; i < ary1.length; i++) {
+            ary3[i] = ary1[i];
+        }
+        // Second loop to copy elements from ary2 into ary3, starting after ary1's length
+        for (let i = 0; i < ary2.length; i++) {
+            ary3[ary1.length + i] = ary2[i];
+        }
+        // Display the merged array
+        console.log(ary3); // Output: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+        // Method 1: Using concat() method
+        //   ary3 = ary1.concat(arry2);
+        //   console.log(ary3);
+    </script>
+</body>
+
+</html>
