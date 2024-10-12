@@ -1,37 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Recursion Data Structure in JS</title>
 </head>
 <body>
-    <h1>Recursion Data Structure in JS</h1>
-    <p>Recursion ka mutlab hota hai esa function jo kud ko bar bar dorata hai,</p>
-
-
+    <div class="container">
+        <h1>Recursion Data Structure in JS</h1>
+        <p>Recursion ka mutlab hota hai esa function jo kud ko bar bar dorata hai,</p> <br>
+        <input class="input" type="number" placeholder="Enter Number Here" id="facNumber"> <br>
+        <button onclick="findFactorial()" class="button-50">Find Factorial</button>
+        <h1 id="output" style="margin-top: 20px; font-weight: bold"></h1>
+    </div>
     <script>
-        // function apple(e){
-        //     console.log(e);
-        //     if(e<5){
-        //         e*apple(e+1);
-        //     }
-        // }
-        // let data = 0;
-        // apple(data);
-        
-        function factorial(x){
-            if(x==0){
-                return 1;
+        function findFactorial() {
+            function factorial(item) {
+                if (item == 0) {
+                    return 1;
+                }
+                return item * factorial(item - 1);
             }
-            // here condition X==0 is use to control Recursion if we not use X==0 is function go into infinite mood
-            // Example: if we not X==0 ur pr return 1 phr ye ho gia 5*4*3*2*1*0*-1*-2*-3.....  
-            return x*factorial(x-1);
+            let number = parseInt(document.getElementById('facNumber').value);
+            let result = factorial(number);
+            document.getElementById('output').innerHTML = `Factorial of ${number} is: ${result}`;
+            console.log(factorial(number));
         }
-        let ficOF = 5;
-        //# Examle factorial: 5 = 5*4*3*2*1
-       console.log(factorial(ficOF));
-
     </script>
 </body>
+
 </html>
