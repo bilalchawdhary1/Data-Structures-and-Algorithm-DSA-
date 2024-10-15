@@ -4,38 +4,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>#15 Stack Data structure with Inputs in JavaScript</title>
+    <title>Stack Data Structure with Inputs in JavaScript</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>#15 Stack Data structure with Inputs in JavaScript</h1>
-    <input type="text" placeholder="Enter add number" id="addNumber">
-    <button onclick="pushElement()">Add Number</button>
-    <button onclick="popElement()">Remove Number</button>
-    <button onclick="showElements()">Show Number</button>
+    <h1>Stack Data Structure with Inputs in JavaScript</h1>
+    <input class="input" type="text" placeholder="Enter a number" id="addNumber"> <br>
+    <button class="button-50" onclick="pushElement()">Add Number</button>
+    <button class="button-50" onclick="popElement()">Remove Number</button>
+    <button class="button-50" onclick="showElements()">Show Numbers</button> <br>
+    <div id="stackDisplay"></div> <!-- Add display area for the stack -->
 
     <script>
         let data = [1, 2, 3];
-        let currentLength = data.length
+        let currentLength = data.length;
+
+        // Function to add a number to the stack
         function pushElement() {
             let addNumber = document.getElementById("addNumber").value;
-            data[currentLength] = addNumber;
-            currentLength++;
-            document.getElementById("addNumber").value = '';
+
+            // Check if the input is a valid number
+            if (!isNaN(addNumber) && addNumber !== "") {
+                data.push(Number(addNumber)); // Push the number to the stack
+                currentLength = data.length; // Update length
+                document.getElementById("addNumber").value = ''; // Clear the input
+            } else {
+                alert("Please enter a valid number!");
+            }
+            const displayDiv = document.getElementById("stackDisplay");
+            displayDiv.innerHTML = "<strong>Stack:</strong> " + data.join(", ");
+            console.log(data); // Still logs the array in console for debugging
         }
 
-        function popElement(){
-            if(currentLength>0){
-                currentLength--;
-                data.length = currentLength;
-            }else{
-               alert("Please add Number");
+        // Function to remove the last element from the stack
+        function popElement() {
+            if (currentLength > 0) {
+                data.pop(); // Remove last element
+                currentLength = data.length; // Update length
+            } else {
+                alert("No more numbers to remove!");
             }
+            const displayDiv = document.getElementById("stackDisplay");
+            displayDiv.innerHTML = "<strong>Stack:</strong> " + data.join(", ");
+            console.log(data); // Still logs the array in console for debugging
         }
-        function showElements(){
-            for(let i=0; i<=data.length-1;i++){
-                console.log(data[i])
-            }
+
+        // Function to show the stack elements
+        function showElements() {
+            const displayDiv = document.getElementById("stackDisplay");
+            displayDiv.innerHTML = "<strong>Stack:</strong> " + data.join(", ");
+            console.log(data); // Still logs the array in console for debugging
         }
     </script>
 </body>
