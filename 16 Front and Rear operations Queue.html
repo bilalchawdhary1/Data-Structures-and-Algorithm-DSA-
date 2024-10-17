@@ -4,18 +4,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Front and Rear Operations Queue with JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Front and Rear Operations Queue with JavaScript</h1>
+    <input class="input" type="text" placeholder="Enter a number" id="enVal"> <br>
+    <button class="button-50" onclick="enQueue()">Add Number</button>
+    <button class="button-50" onclick="deQueue()">Remove Number</button>
+    <button class="button-50" onclick="front()">Get Front</button>
+    <button class="button-50" onclick="rear()">Get Rear</button>
+    <button class="button-50" onclick="showElements()">Show Numbers</button> <br>
+    <div id="queueDisplay"></div> <!-- Add display area for the queue -->
+    
+    <script>
+        let queue = [1, 2, 3]; // Initial queue
+        let currentSize = queue.length; // Current size of the queue
+        let maxSize = 5; // Maximum allowed size of the queue
+
+        // Function to add (enqueue) an element to the queue
+        function enQueue() {
+            let enVal = document.getElementById("enVal").value;
+            
+            if (enVal === "") {
+                alert("Please enter a valid number.");
+                return;
+            }
+
+            if (currentSize < maxSize) {
+                queue[currentSize] = enVal; // Add the new value at the current size index
+                currentSize++; // Increment current size
+                document.getElementById("enVal").value = ''; // Clear input field
+            } else {
+                alert("Queue is full, cannot add more numbers.");
+            }
+
+            console.log(queue);
+        }
+
+        // Function to remove (dequeue) the front element from the queue
+        function deQueue() {
+            if (currentSize > 0) {
+                // Shift the elements manually
+                for (let i = 0; i < currentSize - 1; i++) {
+                    queue[i] = queue[i + 1]; // Shift elements left
+                }
+                currentSize--; // Reduce the size of the queue
+                queue.length = currentSize; // Adjust the length of the array to match current size
+            } else {
+                alert("Queue is already empty.");
+            }
+
+            console.log(queue);
+        }
+
+        // Function to get the front element of the queue (first element)
+        function front() {
+            if (currentSize > 0) {
+                alert("Front element: " + queue[0]); // Front element is the first in the queue
+            } else {
+                alert("Queue is empty.");
+            }
+        }
+
+        // Function to get the rear element of the queue (last element)
+        function rear() {
+            if (currentSize > 0) {
+                alert("Rear element: " + queue[currentSize - 1]); // Rear element is the last in the queue
+            } else {
+                alert("Queue is empty.");
+            }
+        }
+
+        // Function to show all elements in the queue
+        function showElements() {
+            const displayDiv = document.getElementById("queueDisplay");
+            if (currentSize > 0) {
+                displayDiv.innerHTML = "<strong>Queue:</strong> " + queue.join(", ");
+            } else {
+                displayDiv.innerHTML = "<strong>Queue:</strong> Empty";
+            }
+        }
+    </script>
+</body>
+
+</html>
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Front and Rear operations Queue with JavaScript</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <h1>Front and Rear operations Queue with JavaScript</h1>
-    <input type="text" placeholder="enter element here" id="enVal">
-    <button onclick="enQueue()">Add Element</button> <br> <br>
-    <button onclick="deQueue()">Remove Element</button>
-    <button onclick="front()">Get Front</button>
-    <button onclick="rear()">Get Rear</button>
+    <input class="input" type="text" placeholder="Enter a number" id="enVal"> <br>
+    <button class="button-50" onclick="enQueue()">Add Number</button>
+    <button class="button-50" onclick="deQueue()">Remove Number</button>
+    <button class="button-50" onclick="front()">Get Front</button>
+    <button class="button-50" onclick="rear()">Get Rear</button>
+    <button class="button-50" onclick="showElements()">Show Numbers</button> <br>
+    <div id="queueDisplay"></div>
     <script>
-        let queue = [];
+        let queue = [1, 2, 3];
         let currentSize = queue.length;
         let maxSize = 5;
 
@@ -38,7 +136,6 @@
             }
             console.log(queue);
         }
-        // front is the oldest value & frist value of array;
         function front() {
             if (currentSize > 0) {
                 console.log(queue[0]);
@@ -46,23 +143,19 @@
                 alert("queue is already empty");
             }
         }
-        // Rear is the latest value that update in array & last value of array;
         function rear() {
             if (currentSize > 0) {
                 console.log(queue[currentSize - 1]);
             } else {
                 alert("queue is already empty");
             }
+            
         }
-
-        // enQueue(20);
-        // enQueue(30);
-        // enQueue(40);
-        // front();
-        // rear();
-        // console.log(queue);
-
+        function showElements() {
+            const displayDiv = document.getElementById("queueDisplay");
+            displayDiv.innerHTML = "<strong>Queue:</strong> " + queue.join(", ");
+        }
     </script>
 </body>
 
-</html>
+</html> -->

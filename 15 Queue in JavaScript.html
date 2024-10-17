@@ -9,33 +9,75 @@
 
 <body>
     <h1>Queue in JavaScript</h1>
-
+    <h1>Queue is a lenior data Structure in queue FIFO mathored used</h1>
+    <p>1 By default method for enqueue() is push() <br>
+        2 By default method for dequeue() is shift() <br>
+        Shift() and unshift() for starting of an array</p>
+    <div id="queueDisplay"></div> <!-- Display queue here -->
     <script>
-        let queue = [];
+        let queue = [1, 2, 3];
         let currentSize = queue.length;
         let maxSize = 5;
 
-        function enQueue(enVal) {
-            queue[currentSize] = enVal;
-            currentSize++;
+        // for add new value in the queue
+        function enQueue(newValue) {
+            if (currentSize >= maxSize) {
+                alert("Queue is full, can't add " + newValue);
+                return;
+            } else {
+                queue[currentSize] = newValue;
+                currentSize++
+            }
         }
-        function dnQueue(enVal) {
-            if (currentSize > 0) {
+        // for remove value in the queue
+        function deQueue() {
+            if (currentSize <= 0) {
+                alert("Queue is empty, can't remove");
+                return;
+            } else {
                 for (let i = 0; i < queue.length; i++) {
                     queue[i] = queue[i + 1];
                 }
-                currentSize--;
+                currentSize--
                 queue.length = currentSize;
-            }else{
-                alert("queue is already empty");
             }
-
+        }
+        // Function to display the queue
+        function displayQueue() {
+            const displayDiv = document.getElementById("queueDisplay");
+            displayDiv.innerHTML = "<strong>Queue:</strong> " + queue.join(", ");
         }
 
-        enQueue(20);
-        enQueue(30);
-        enQueue(40);
+        deQueue()
+        enQueue(12)
+        displayQueue();
         console.log(queue);
+
+        // let queue = [1,2,3];
+        // let currentSize = queue.length;
+        // let maxSize = 5;
+
+        // function enQueue(enVal) {
+        //     queue[currentSize] = enVal;
+        //     currentSize++;
+        // }
+        // function dnQueue(enVal) {
+        //     if (currentSize > 0) {
+        //         for (let i = 0; i < queue.length; i++) {
+        //             queue[i] = queue[i + 1];
+        //         }
+        //         currentSize--;
+        //         queue.length = currentSize;
+        //     } else {
+        //         alert("queue is already empty");
+        //     }
+
+        // }
+
+        // enQueue(20);
+        // enQueue(30);
+        // enQueue(40);
+        // console.log(queue);
     </script>
 </body>
 
