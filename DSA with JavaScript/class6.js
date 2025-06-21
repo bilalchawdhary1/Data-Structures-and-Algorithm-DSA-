@@ -211,3 +211,153 @@ for (let i = 0; i < arr3.length; i++) {
 //   console.log(nums1); // Print the modified nums1 array
 //   return nums1; // Return the modified nums1 array for testing purposes
 // };
+// Q 13 Best Time to Buy and Sell Stock
+/**
+ * @param {number[]} prices
+ * @return {number}
+ */
+let maxProfit = function (prices) {
+  let minPrice = prices[0];
+  let maxProfit = 0;
+
+  for (let i = 1; i < prices.length; i++) {
+    if (prices[i] < minPrice) {
+      minPrice = prices[i];
+    } else {
+      let profit = prices[i] - minPrice;
+      maxProfit = Math.max(maxProfit, profit);
+    }
+  }
+
+  return maxProfit;
+};
+
+// Example usage:
+// console.log(maxProfit([7, 1, 5, 3, 6, 4])); // Output: 5 (Buy at 1, sell at 6)
+// console.log(maxProfit([7, 6, 4, 3, 1])); // Output: 0 (No profit possible)
+// console.log(maxProfit([2, 4, 1])); // Output: 2 (Buy at 2, sell at 4)
+// console.log(maxProfit([3, 2, 6, 5, 0, 3])); // Output: 4 (Buy at 2, sell at 6)
+// Q 14 Best Time to Buy and Sell Stock II
+/**
+ * @param {number[]} prices
+ * @return {number}
+ */
+let maxProfitII = function (prices) {
+  let totalProfit = 0;
+
+  for (let i = 1; i < prices.length; i++) {
+    if (prices[i] > prices[i - 1]) {
+      totalProfit += prices[i] - prices[i - 1];
+    }
+  }
+
+  return totalProfit;
+};
+// Example usage:
+console.log(maxProfitII([7, 1, 5, 3, 6, 4])); // Output: 7 (Buy at 1, sell at 5, buy at 3, sell at 6)
+// console.log(maxProfitII([1, 2, 3, 4, 5])); // Output: 4 (Buy at 1, sell at 5)
+// console.log(maxProfitII([7, 6, 4, 3, 1])); // Output: 0 (No profit possible)
+// 15. Sort Colors
+/**
+ * @param {number[]} nums
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
+var sortColors = function (nums) {
+  let low = 0,
+    mid = 0,
+    high = nums.length - 1;
+
+  while (mid <= high) {
+    if (nums[mid] === 0) {
+      [nums[low], nums[mid]] = [nums[mid], nums[low]];
+      low++;
+      mid++;
+    } else if (nums[mid] === 1) {
+      mid++;
+    } else {
+      [nums[mid], nums[high]] = [nums[high], nums[mid]];
+      high--;
+    }
+  }
+  return nums; // Return the modified array for testing purposes
+};
+// 16 maximum subarray
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var maxSubArray = function (nums) {
+  let maxSum = nums[0];
+  let currentSum = nums[0];
+
+  for (let i = 1; i < nums.length; i++) {
+    currentSum = Math.max(nums[i], currentSum + nums[i]);
+    maxSum = Math.max(maxSum, currentSum);
+  }
+
+  return maxSum;
+};
+// Example usage:
+console.log(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4])); // Output: 6 (subarray [4, -1, 2, 1])
+console.log(maxSubArray([1])); // Output: 1 (subarray [1])
+console.log(maxSubArray([5, 4, -1, 7, 8])); // Output: 23 (subarray [5, 4, -1, 7, 8])
+console.log(maxSubArray([-2, -1])); // Output: -1 (subarray [-1])
+console.log(maxSubArray([-2, -3, -1])); // Output: -1 (subarray [-1])
+// 17 Majority Element
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var majorityElement = function (nums) {
+  let count = 0;
+  let candidate;
+
+  for (let num of nums) {
+    if (count === 0) {
+      candidate = num;
+    }
+    count += num === candidate ? 1 : -1;
+  }
+
+  return candidate;
+};
+// Example usage:
+console.log(majorityElement([3, 2, 3])); // Output: 3
+console.log(majorityElement([2, 2, 1, 1, 1, 2, 2])); // Output: 2
+console.log(majorityElement([1])); // Output: 1
+console.log(majorityElement([1, 2, 3, 4, 5, 5, 5])); // Output: 5
+// 18 Tripping Rain Water
+/**
+ * @param {number[]} height
+ * @return {number}
+ */
+var trap = function (height) {
+  let left = 0,
+    right = height.length - 1;
+  let leftMax = 0,
+    rightMax = 0;
+  let waterTrapped = 0;
+
+  while (left < right) {
+    if (height[left] < height[right]) {
+      if (height[left] >= leftMax) {
+        leftMax = height[left];
+      } else {
+        waterTrapped += leftMax - height[left];
+      }
+      left++;
+    } else {
+      if (height[right] >= rightMax) {
+        rightMax = height[right];
+      } else {
+        waterTrapped += rightMax - height[right];
+      }
+      right--;
+    }
+  }
+
+  return waterTrapped;
+};
+// Example usage:
+console.log(trap([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1])); // Output: 6
+console.log(trap([4, 2, 0, 3, 2, 5])); // Output: 9
