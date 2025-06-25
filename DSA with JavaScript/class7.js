@@ -152,9 +152,159 @@ let reverseWordsOnly = str
   .map(word => word.split("").reverse().join(""))
   .join(" ");
 console.log(reverseWordsOnly); // Output: I ma tpircSavaJ repoleved
-// reverse only the words in the string
-let reverseWordsWithSpaces = str
-  .split(" ")
-  .map(word => word.split("").reverse().join(""))
-  .join(" ");
-console.log(reverseWordsWithSpaces); // Output: I ma tpircSavaJ repoleved
+
+// 4. Check the string is palindrome or not
+function isPalindrome(str) {
+  // Remove spaces and convert to lowercase
+  let cleanedStr = str.replace(/\s+/g, "").toLowerCase();
+  // Reverse the cleaned string
+  let reversedStr = cleanedStr.split("").reverse().join("");
+  // Check if the cleaned string is equal to the reversed string
+  return cleanedStr === reversedStr;
+}
+// Example usage
+let palindromeString = "A man a plan a canal Panama";
+console.log(isPalindrome(palindromeString)); // Output: true
+let nonPalindromeString = "Hello, World!";
+console.log(isPalindrome(nonPalindromeString)); // Output: false
+
+let str002 = "Hello";
+let isPalindrome = str002 === str002.split("").reverse().join("");
+console.log(isPalindrome); // Output: false (since "Hello" is not a palindrome)
+
+// 5. Convert string characters to ASCII values
+function stringToAscii(str) {
+  let asciiValues = [];
+  for (let char of str) {
+    asciiValues.push(char.charCodeAt(0));
+  }
+  return asciiValues;
+}
+// Example usage
+let asciiString = "Hello";
+console.log(stringToAscii(asciiString)); // Output: [72, 101, 108, 108, 111]
+// 6. Convert ASCII values back to string characters
+function asciiToString(asciiArray) {
+  let str = "";
+  for (let ascii of asciiArray) {
+    str += String.fromCharCode(ascii);
+  }
+  return str;
+}
+// Example usage
+let asciiArray = [72, 101, 108, 108, 111];
+console.log(asciiToString(asciiArray)); // Output: Hello
+// 7 Toggle case of each character in the string
+function toggleCase(str) {
+  let toggledStr = "";
+  for (let char of str) {
+    if (char === char.toUpperCase()) {
+      toggledStr += char.toLowerCase();
+    } else {
+      toggledStr += char.toUpperCase();
+    }
+  }
+  return toggledStr;
+}
+// Example usage
+let toggleString = "Hello World!";
+console.log(toggleCase(toggleString)); // Output: hELLO wORLD!
+// 8. Count the number of vowels in a string
+function countVowels(str) {
+  let vowelCount = 0;
+  let vowels = "aeiouAEIOU";
+  for (let char of str) {
+    if (vowels.includes(char)) {
+      vowelCount++;
+    }
+  }
+  return vowelCount;
+}
+// Example usage
+let exampleString2 = "Hello World!";
+console.log(countVowels(exampleString2)); // Output: 3
+// 9. Count the number of consonants in a string
+function countConsonants(str) {
+  let consonantCount = 0;
+  let vowels = "aeiouAEIOU";
+  for (let char of str) {
+    if (char.match(/[a-zA-Z]/) && !vowels.includes(char)) {
+      consonantCount++;
+    }
+  }
+  return consonantCount;
+}
+// Example usage
+let exampleString3 = "Hello World!";
+console.log(countConsonants(exampleString3)); // Output: 7
+// 10. Find the longest word in a string
+function findLongestWord(str) {
+  let words = str.split(" ");
+  let longestWord = "";
+  for (let word of words) {
+    if (word.length > longestWord.length) {
+      longestWord = word;
+    }
+  }
+  return longestWord;
+}
+// Example usage
+let exampleString4 = "Hello World!";
+console.log(findLongestWord(exampleString4)); // Output: "Hello"
+// 11. Find the shortest word in a string
+function findShortestWord(str) {
+  let words = str.split(" ");
+  let shortestWord = words[0];
+  for (let word of words) {
+    if (word.length < shortestWord.length) {
+      shortestWord = word;
+    }
+  }
+  return shortestWord;
+}
+// Example usage
+let exampleString5 = "Hello World!";
+console.log(findShortestWord(exampleString5)); // Output: "World!"
+// 12. Count the number of words in a string
+function countWords(str) {
+  let words = str.trim().split(/\s+/); // Split by whitespace and remove extra spaces
+  return words.length;
+}
+// Example usage
+let exampleString6 = "Hello World! This is a test.";
+console.log(countWords(exampleString6)); // Output: 7
+// 13. Remove all vowels from a string
+function removeVowels(str) {
+  return str.replace(/[aeiouAEIOU]/g, ""); // Use regex to remove vowels
+}
+// Example usage
+let exampleString7 = "Hello World!";
+console.log(removeVowels(exampleString7)); // Output: "Hll Wrld!"
+// 14. Count the number of occurrences of a specific character in a string
+function countCharacterOccurrences(str, char) {
+  let count = 0;
+  for (let c of str) {
+    if (c === char) {
+      count++;
+    }
+  }
+  return count;
+}
+// Example usage
+let exampleString8 = "Hello World!";
+let characterToCount = "o";
+console.log(countCharacterOccurrences(exampleString8, characterToCount)); // Output: 2
+// 15. Count the number of characters how many times each character appears in a string
+function countAllCharacterOccurrences(str) {
+  let charCount = {};
+  for (let c of str) {
+    charCount[c] = (charCount[c] || 0) + 1; // how it works
+    // If the character is not in the object, initialize it to 0 and then increment by 1
+    // If it is already in the object, increment its count by 1
+  }
+  return charCount;
+}
+// Example usage
+let exampleString9 = "Hello World!";
+console.log(countAllCharacterOccurrences(exampleString9));
+// Output: { H: 1, e: 1, l: 3, o: 2, ' ': 1, W: 1, r: 1, d: 1, '!': 1 }
