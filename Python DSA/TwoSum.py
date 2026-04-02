@@ -24,3 +24,4 @@ def twoSum(nums, target):
             return [num_dict[complement], i]
         num_dict[num] = i
     return []
+print(twoSum(nums, target))
