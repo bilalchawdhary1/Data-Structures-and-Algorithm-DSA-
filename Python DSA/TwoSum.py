@@ -25,3 +25,13 @@ def twoSum(nums, target):
         num_dict[num] = i
     return []
 print(twoSum(nums, target))
+
+text = "Python"
+for char in reversed(text):
+    print(char)
+
+text = "Python"
+for index, char in enumerate(text):
+    print(f"Index {index}: {char}")
+
+n = range(5)
